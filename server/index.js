@@ -1,22 +1,27 @@
 const express = require('express');
 const dbConfig = require('./src/database/mongodbConfig');
 const router = require('./src/routes');
-const cors = require('cors')
+const cors = require('cors');
 const app = express();
 
-//port
+// Port
 const port = 3001;
+
 app.use(express.json());
-app.use(cors())
-//database
+app.use(cors());
+
+// Database configuration
 dbConfig();
 
-//router
+// Router
 app.use(router);
 
+// Simple GET request to check server status
+app.get('/', (req, res) => {
+  res.send('Server is running...');
+});
 
-//listeners
-app.listen(port, ()=>{
-    console.log(`server listening on http://localhost:${port}`);
-    
-})
+// Listeners
+app.listen(port, () => {
+  console.log(`Server listening on http://localhost:${port}`);
+});
