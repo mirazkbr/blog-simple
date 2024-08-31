@@ -8,7 +8,7 @@ const BlogDetails = () => {
   const [blog, setBlog] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/v1/blog-posts/read-blog')
+    axios.get('https://blog-simple-api.vercel.app/api/v1/blog-posts/read-blog')
       .then(res => {
         const foundBlog = res.data.find(blog => blog.titleName === titleName);
         setBlog(foundBlog);

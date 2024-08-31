@@ -14,7 +14,7 @@ const PostData = () => {
 
     const submitPost = (e) => {
         e.preventDefault(); 
-        axios.post('http://localhost:3001/api/v1/blog-posts/create-blog', blogData)
+        axios.post('https://blog-simple-api.vercel.app/api/v1/blog-posts/create-blog', blogData)
             .then(res => {
                 console.log('Post created successfully:', res.data);
                 setBlogData({

@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     // Fetch the latest 4 blog posts
-    axios.get('http://localhost:3001/api/v1/blog-posts/read-blog')
+    axios.get('https://blog-simple-api.vercel.app/api/v1/blog-posts/read-blog')
       .then(res => {
         const blogs = res.data; // Assuming the API returns an array of blog posts
         setLatestBlogs(blogs.slice(0, 4)); // Get the latest 4 posts
@@ -17,7 +17,7 @@ const Home = () => {
       .catch(err => console.error('Error fetching latest blogs:', err));
 
     // Fetch 4 random posts for the trend posts section
-    axios.get('http://localhost:3001/api/v1/blog-posts/read-blog')
+    axios.get('https://blog-simple-api.vercel.app/api/v1/blog-posts/read-blog')
       .then(res => {
         const blogs = res.data;
         const shuffled = blogs.sort(() => 0.5 - Math.random()); // Shuffle the array
