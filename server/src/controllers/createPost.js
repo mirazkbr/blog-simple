@@ -2,7 +2,7 @@ const Blog = require("../models/blogSchema");
 
 async function createPost(req, res) {
     try {
-        const { titleName, description } = req.body;
+        const { titleName, description, cover } = req.body;
 
         const duplicate = Blog.findOne({ titleName})
 
@@ -14,7 +14,8 @@ async function createPost(req, res) {
 
         const newPost = new Blog({
             titleName,
-            description
+            description,
+            cover
         });
 
         const savedPost = await newPost.save();
